@@ -8,5 +8,7 @@ RUN apt-get update && apt-get -y install ruby ruby-dev rubygems git gcc make \
 WORKDIR /home/rubygems
 
 RUN git submodule update --init && ruby setup.rb \
-	&& gem install jekyll jekyll-paginate \
-	&& rm -rf /home/*
+	&& gem install jekyll jekyll-paginate
+	
+WORKDIR /home
+RUN rm -rf /home/*
